@@ -64,7 +64,7 @@ import Util.Conexao;
 		       
 		    	Connection con = Conexao.conectar();		
 				String sql = "insert into matricula (codAluno, codDisciplina,"
-						+ " dtMatricula, statusMatricula,) values(?,?,?,?)";
+						+ " dtMatricula, statusMatricula) values(?,?,?,?)";
 				try {
 					PreparedStatement stm = con.prepareStatement(sql);
 					stm.setInt(1, this.codAluno);

@@ -59,15 +59,16 @@ public class Disciplina {
 		 public Boolean incluirDisciplina() {
 		       
 		    	Connection con = Conexao.conectar();		
-				String sql = "insert into disciplina (codDisciplina, nomDisciplina,"
-						+ " nomProfessor, qtdAvaliacoes,) values (?,?,?,?)";
+				String sql = "insert into disciplina ( nomDisciplina,"
+						+ " nomProfessor, qtdAvaliacoes) values (?,?,?)";
 				try {
 					PreparedStatement stm = con.prepareStatement(sql);
-					stm.setInt(1, this.codDisciplina);
-					stm.setString(2, this.nomDisciplina);
-					stm.setString(3, this.nomProfessor);
-					stm.setInt(4, this.qtdAvaliacoes);					
+					
+					stm.setString(1, this.nomDisciplina);
+					stm.setString(2, this.nomProfessor);
+					stm.setInt(3, this.qtdAvaliacoes);					
 					stm.execute();
+					System.out.println(sql);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}        	
